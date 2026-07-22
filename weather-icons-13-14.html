@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Icons 13-14</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .icon-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 250px;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #202124;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .icon-number {
+            font-size: 0.9em;
+            color: #9aa0a6;
+            font-weight: 500;
+        }
+
+        .code-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-section h2 {
+            color: #202124;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            color: #202124;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .comment {
+            color: #9aa0a6;
+        }
+
+        .tag {
+            color: #667eea;
+        }
+
+        .string {
+            color: #d32f2f;
+        }
+
+        .final-note {
+            background: linear-gradient(135deg, #FFB84D 0%, #667eea 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 30px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weather Icon Library</h1>
+            <p>SVG Weather Icons 13-14 - Final Icons</p>
+        </div>
+
+        <div class="icons-grid">
+            <!-- Icon 13 - Sunny/Partly Cloudy (Yellow burst) -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Yellow sun with wavy edges (burst effect) -->
+                        <g fill="#FFD700">
+                            <!-- Main circle -->
+                            <circle cx="50" cy="50" r="28" fill="#FFB84D"/>
+                            <!-- Wavy/burst petals -->
+                            <circle cx="50" cy="20" r="8"/>
+                            <circle cx="78" cy="28" r="8"/>
+                            <circle cx="80" cy="50" r="8"/>
+                            <circle cx="78" cy="72" r="8"/>
+                            <circle cx="50" cy="80" r="8"/>
+                            <circle cx="22" cy="72" r="8"/>
+                            <circle cx="20" cy="50" r="8"/>
+                            <circle cx="22" cy="28" r="8"/>
+                            <!-- Diagonal petals -->
+                            <circle cx="68" cy="32" r="7"/>
+                            <circle cx="68" cy="68" r="7"/>
+                            <circle cx="32" cy="68" r="7"/>
+                            <circle cx="32" cy="32" r="7"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-title">Sunny Burst</div>
+                <div class="icon-number">Image 13</div>
+            </div>
+
+            <!-- Icon 14 - Night/Moon with Cloud -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Blue crescent moon -->
+                        <path d="M25 50C25 38 33 28 45 28C48 28 50 28 52 29C42 38 35 48 35 60C35 72 42 82 52 91C50 92 48 92 45 92C25 92 15 82 15 65C15 50 22 38 32 32C28 38 25 44 25 50Z" fill="#60A5FA"/>
+                        <!-- White cloud on right -->
+                        <path d="M50 65C40 65 35 60 35 50C35 40 45 35 53 35C57 25 65 20 73 20C83 20 91 28 93 40C103 43 110 50 110 60C110 70 103 77 93 77H55C47 77 50 75 50 65Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="icon-title">Night Cloud</div>
+                <div class="icon-number">Image 14</div>
+            </div>
+        </div>
+
+        <div class="code-section">
+            <h2>Final Icons Implementation</h2>
+            
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 20px;">Icon 13 - Sunny Burst (Extended sun rays)</h3>
+            <div class="code-block">
+                <code>
+&lt;<span class="tag">svg</span> viewBox=<span class="string">"0 0 100 100"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tag">g</span> fill=<span class="string">"#FFD700"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* Main sun circle */</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"28"</span> fill=<span class="string">"#FFB84D"</span>/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* 8 cardinal direction rays */</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"50"</span> cy=<span class="string">"20"</span> r=<span class="string">"8"</span>/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"80"</span> cy=<span class="string">"50"</span> r=<span class="string">"8"</span>/&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">/* 4 diagonal rays */</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"68"</span> cy=<span class="string">"32"</span> r=<span class="string">"7"</span>/&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tag">g</span>&gt;<br>
+&lt;/<span class="tag">svg</span>&gt;
+                </code>
+            </div>
+
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 20px;">Icon 14 - Night Cloud (Moon + Cloud)</h3>
+            <div class="code-block">
+                <code>
+&lt;<span class="tag">svg</span> viewBox=<span class="string">"0 0 100 100"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+&nbsp;&nbsp;<span class="comment">/* Blue crescent moon */</span><br>
+&nbsp;&nbsp;&lt;<span class="tag">path</span> d=<span class="string">"M25 50C25 38..."</span> fill=<span class="string">"#60A5FA"</span>/&gt;<br>
+&nbsp;&nbsp;<span class="comment">/* White cloud on right side */</span><br>
+&nbsp;&nbsp;&lt;<span class="tag">path</span> d=<span class="string">"M50 65C40 65..."</span> fill=<span class="string">"white"</span>/&gt;<br>
+&lt;/<span class="tag">svg</span>&gt;
+                </code>
+            </div>
+
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 25px;">Complete Weather Icon Set Summary</h3>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 12px; margin-top: 15px;">
+                <p style="color: #202124; margin-bottom: 15px; font-weight: 500;">You now have 14 complete weather icons:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                    <div style="padding: 10px; background: white; border-radius: 8px; font-size: 0.9em;">✅ 1-4: Basic conditions</div>
+                    <div style="padding: 10px; background: white; border-radius: 8px; font-size: 0.9em;">✅ 5-8: Standard weather</div>
+                    <div style="padding: 10px; background: white; border-radius: 8px; font-size: 0.9em;">✅ 9-12: Mixed conditions</div>
+                    <div style="padding: 10px; background: white; border-radius: 8px; font-size: 0.9em;">✅ 13-14: Final icons</div>
+                </div>
+            </div>
+
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 25px;">Color Reference</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: #FFB84D; padding: 15px; border-radius: 8px; color: #202124; font-weight: 600; font-size: 0.9em;">
+                    Sunny: #FFB84D
+                </div>
+                <div style="background: #FFD700; padding: 15px; border-radius: 8px; color: #202124; font-weight: 600; font-size: 0.9em;">
+                    Gold: #FFD700
+                </div>
+                <div style="background: #60A5FA; padding: 15px; border-radius: 8px; color: white; font-weight: 600; font-size: 0.9em;">
+                    Moon Blue: #60A5FA
+                </div>
+                <div style="background: white; padding: 15px; border-radius: 8px; border: 2px solid #ddd; color: #202124; font-weight: 600; font-size: 0.9em;">
+                    White: white
+                </div>
+            </div>
+        </div>
+
+        <div class="final-note">
+            🎉 You now have a complete weather icon library with 14 different conditions ready to use in your weather generator!
+        </div>
+    </div>
+</body>
+</html>
