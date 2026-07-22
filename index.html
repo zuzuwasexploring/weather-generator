@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weather Generator</h1>
+            <p>Create custom weather reports to prank your friends</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Weather Display -->
+            <div class="weather-display">
+                <div class="weather-card">
+                    <div class="location-header">
+                        <div class="location-info">
+                            <div class="location-name" id="locationName">San Francisco</div>
+                            <div class="location-date" id="locationDate"></div>
+                        </div>
+                        <input type="text" id="locationInput" class="location-input" placeholder="Enter location">
+                    </div>
+
+                    <div class="weather-main">
+                        <div class="temp-section">
+                            <div class="temp-display" id="tempDisplay">72</div>
+                            <div class="temp-unit">°F</div>
+                        </div>
+                        <div class="icon-section">
+                            <svg id="weatherIcon" class="weather-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Default sunny icon -->
+                                <circle cx="50" cy="50" r="30" fill="#FFB84D"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="weather-description" id="weatherDescription">Sunny</div>
+
+                    <div class="weather-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Feels like</span>
+                            <span class="detail-value" id="feelsLike">72°</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Humidity</span>
+                            <span class="detail-value" id="humidity">45%</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Wind</span>
+                            <span class="detail-value" id="windSpeed">8 mph</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pressure</span>
+                            <span class="detail-value" id="pressure">30.12 in</span>
+                        </div>
+                    </div>
+
+                    <!-- Air Quality -->
+                    <div class="air-quality-section">
+                        <div class="aqi-header">
+                            <span class="aqi-label">Air Quality</span>
+                            <span class="aqi-value" id="aqiValue">50 · Good</span>
+                        </div>
+                        <div class="aqi-bar" id="aqiBar"></div>
+                    </div>
+
+                    <!-- Warnings Section -->
+                    <div class="warnings-section" id="warningsSection" style="display: none;">
+                        <div class="warning-header">⚠️ Alerts</div>
+                        <div id="warningsContainer" class="warnings-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="control-panel">
+                <h2>Customize Weather</h2>
+
+                <div class="control-group">
+                    <label for="tempInput">Temperature (°F)</label>
+                    <div class="input-group">
+                        <input type="number" id="tempInput" value="72" min="-100" max="200">
+                        <span class="unit">°F</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="descriptionInput">Weather Description</label>
+                    <input type="text" id="descriptionInput" value="Sunny" placeholder="e.g., Sunny, Rainy, Snowy...">
+                </div>
+
+                <div class="control-group">
+                    <label for="aqiSlider">Air Quality Index (0 - 10,000)</label>
+                    <div class="slider-group">
+                        <input type="range" id="aqiSlider" min="0" max="10000" value="50" class="slider">
+                        <span id="aqiDisplay" class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="humiditySlider">Humidity (%)</label>
+                    <div class="input-group">
+                        <input type="range" id="humiditySlider" min="0" max="100" value="45" class="slider">
+                        <span id="humidityDisplay" class="slider-value">45</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="windInput">Wind Speed (mph)</label>
+                    <div class="input-group">
+                        <input type="number" id="windInput" value="8" min="0" max="200">
+                        <span class="unit">mph</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="feelsLikeInput">Feels Like (°F)</label>
+                    <div class="input-group">
+                        <input type="number" id="feelsLikeInput" value="72" min="-100" max="200">
+                        <span class="unit">°F</span>
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="pressureInput">Pressure (in)</label>
+                    <div class="input-group">
+                        <input type="number" id="pressureInput" value="30.12" min="28" max="32" step="0.01">
+                        <span class="unit">in</span>
+                    </div>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="control-group">
+                    <label for="warningInput">Add Special Warning</label>
+                    <div class="warning-input-group">
+                        <input type="text" id="warningInput" placeholder="e.g., Extreme Heat Alert, Tornado Warning...">
+                        <button id="addWarningBtn" class="btn-add-warning">Add</button>
+                    </div>
+                </div>
+
+                <div id="warningsList" class="warnings-list-edit"></div>
+
+                <div class="divider"></div>
+
+                <div class="weather-icons-selector">
+                    <label>Weather Icon</label>
+                    <div class="icons-grid">
+                        <button class="icon-btn" data-icon="sunny" title="Sunny">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="50" cy="50" r="30" fill="#FFB84D"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="cloudy" title="Cloudy">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 60C15 60 10 55 10 45C10 35 20 30 28 30C32 20 40 15 48 15C58 15 66 23 68 35C78 38 85 45 85 55C85 65 78 72 68 72H30C22 72 25 70 25 60Z" fill="#9CA3AF"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="rainy" title="Rainy">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 55C15 55 10 50 10 40C10 30 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 55Z" fill="#9CA3AF"/>
+                                <circle cx="35" cy="75" r="4" fill="#60A5FA"/>
+                                <circle cx="52" cy="80" r="4" fill="#60A5FA"/>
+                                <circle cx="68" cy="75" r="4" fill="#60A5FA"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="stormy" title="Stormy">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 55C15 55 10 50 10 40C10 30 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 55Z" fill="#4B5563"/>
+                                <circle cx="35" cy="75" r="4" fill="#60A5FA"/>
+                                <circle cx="52" cy="80" r="4" fill="#60A5FA"/>
+                                <circle cx="68" cy="75" r="4" fill="#60A5FA"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="thunderstorm" title="Heavy Thunderstorm">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 55C15 55 10 50 10 40C10 30 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 55Z" fill="#2C3E50"/>
+                                <polygon points="45,70 50,80 48,80 55,95 52,85 60,85" fill="#FFD700"/>
+                                <polygon points="60,75 65,85 63,85 70,100 67,90 75,90" fill="#FFD700"/>
+                                <polygon points="30,80 35,90 33,90 40,105 37,95 45,95" fill="#FFD700"/>
+                                <polygon points="75,70 80,80 78,80 85,95 82,85 90,85" fill="#FFD700"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="snowy" title="Snowy">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 55C15 55 10 50 10 40C10 30 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 55Z" fill="#D1D5DB"/>
+                                <circle cx="35" cy="75" r="5" fill="white"/>
+                                <circle cx="52" cy="80" r="5" fill="white"/>
+                                <circle cx="68" cy="75" r="5" fill="white"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="foggy" title="Foggy">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M25 55C15 55 10 50 10 40C10 30 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 55Z" fill="#B0B9C1"/>
+                            </svg>
+                        </button>
+                        <button class="icon-btn" data-icon="night" title="Night">
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M70 20C60 20 52 28 52 38C52 48 60 56 70 56C75 56 80 54 83 50C70 50 60 40 60 30C60 25 62 20 70 20Z" fill="#374151"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <button id="resetBtn" class="btn-reset">Reset All</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
