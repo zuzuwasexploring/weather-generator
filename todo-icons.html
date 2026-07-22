@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Icons</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .icon-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 250px;
+        }
+
+        .icon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .icon-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #202124;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .icon-number {
+            font-size: 0.9em;
+            color: #9aa0a6;
+            font-weight: 500;
+        }
+
+        .code-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-section h2 {
+            color: #202124;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            color: #202124;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .comment {
+            color: #9aa0a6;
+        }
+
+        .tag {
+            color: #667eea;
+        }
+
+        .string {
+            color: #d32f2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weather Icon Library</h1>
+            <p>SVG Weather Icons 5-8 for your applications</p>
+        </div>
+
+        <div class="icons-grid">
+            <!-- Icon 5 - Sunny/Partly Cloudy -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Sunny icon with bright yellow -->
+                        <circle cx="50" cy="50" r="28" fill="#FFB84D"/>
+                        <!-- Sun rays -->
+                        <g stroke="#FFB84D" stroke-width="3" stroke-linecap="round">
+                            <line x1="50" y1="10" x2="50" y2="22"/>
+                            <line x1="50" y1="78" x2="50" y2="90"/>
+                            <line x1="10" y1="50" x2="22" y2="50"/>
+                            <line x1="78" y1="50" x2="90" y2="50"/>
+                            <line x1="19" y1="19" x2="28" y2="28"/>
+                            <line x1="72" y1="72" x2="81" y2="81"/>
+                            <line x1="81" y1="19" x2="72" y2="28"/>
+                            <line x1="28" y1="72" x2="19" y2="81"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-title">Sunny</div>
+                <div class="icon-number">Image 5</div>
+            </div>
+
+            <!-- Icon 6 - Light Cloud -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Light gray cloud -->
+                        <path d="M30 65C20 65 15 58 15 48C15 38 22 32 30 32C33 22 40 18 48 18C60 18 70 28 72 42C82 45 88 52 88 62C88 72 82 80 72 80H32C24 80 30 75 30 65Z" fill="#D1D5DB"/>
+                    </svg>
+                </div>
+                <div class="icon-title">Light Cloud</div>
+                <div class="icon-number">Image 6</div>
+            </div>
+
+            <!-- Icon 7 - Dark Cloud -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Dark gray cloud -->
+                        <path d="M30 65C20 65 15 58 15 48C15 38 22 32 30 32C33 22 40 18 48 18C60 18 70 28 72 42C82 45 88 52 88 62C88 72 82 80 72 80H32C24 80 30 75 30 65Z" fill="#6B7280"/>
+                    </svg>
+                </div>
+                <div class="icon-title">Dark Cloud</div>
+                <div class="icon-number">Image 7</div>
+            </div>
+
+            <!-- Icon 8 - Rainy Cloud -->
+            <div class="icon-card">
+                <div class="icon">
+                    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Dark cloud with rain -->
+                        <path d="M25 58C15 58 10 51 10 41C10 31 20 25 28 25C32 15 40 10 48 10C58 10 66 18 68 30C78 33 85 40 85 50C85 60 78 67 68 67H30C22 67 25 65 25 58Z" fill="#4B5563"/>
+                        <!-- Raindrops -->
+                        <g fill="#60A5FA">
+                            <circle cx="32" cy="78" r="4"/>
+                            <circle cx="52" cy="85" r="4"/>
+                            <circle cx="70" cy="78" r="4"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="icon-title">Rainy Cloud</div>
+                <div class="icon-number">Image 8</div>
+            </div>
+        </div>
+
+        <div class="code-section">
+            <h2>How to Use These Icons</h2>
+            
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 20px;">SVG Icon Code</h3>
+            
+            <div class="code-block">
+                <code>
+<span class="comment">// Icon 5 - Sunny</span><br>
+&lt;<span class="tag">svg</span> viewBox=<span class="string">"0 0 100 100"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"50"</span> cy=<span class="string">"50"</span> r=<span class="string">"28"</span> fill=<span class="string">"#FFB84D"</span>/&gt;<br>
+&lt;/<span class="tag">svg</span>&gt;
+                </code>
+            </div>
+
+            <div class="code-block">
+                <code>
+<span class="comment">// Icon 6 & 7 - Clouds</span><br>
+&lt;<span class="tag">svg</span> viewBox=<span class="string">"0 0 100 100"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tag">path</span> d=<span class="string">"M30 65C20 65..."</span> fill=<span class="string">"#D1D5DB"</span> /&gt;<br>
+&lt;/<span class="tag">svg</span>&gt;
+                </code>
+            </div>
+
+            <div class="code-block">
+                <code>
+<span class="comment">// Icon 8 - Rainy Cloud (dark cloud + raindrops)</span><br>
+&lt;<span class="tag">svg</span> viewBox=<span class="string">"0 0 100 100"</span> xmlns=<span class="string">"http://www.w3.org/2000/svg"</span>&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tag">path</span> d=<span class="string">"M25 58C15 58..."</span> fill=<span class="string">"#4B5563"</span> /&gt;<br>
+&nbsp;&nbsp;&lt;<span class="tag">g</span> fill=<span class="string">"#60A5FA"</span>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<span class="tag">circle</span> cx=<span class="string">"32"</span> cy=<span class="string">"78"</span> r=<span class="string">"4"</span>/&gt;<br>
+&nbsp;&nbsp;&lt;/<span class="tag">g</span>&gt;<br>
+&lt;/<span class="tag">svg</span>&gt;
+                </code>
+            </div>
+
+            <h3 style="color: #202124; margin-bottom: 15px; margin-top: 25px;">Color Reference</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: #FFB84D; padding: 20px; border-radius: 8px; color: #202124; font-weight: 600;">
+                    Sunny Yellow: #FFB84D
+                </div>
+                <div style="background: #D1D5DB; padding: 20px; border-radius: 8px; color: #202124; font-weight: 600;">
+                    Light Cloud: #D1D5DB
+                </div>
+                <div style="background: #6B7280; padding: 20px; border-radius: 8px; color: white; font-weight: 600;">
+                    Dark Cloud: #6B7280
+                </div>
+                <div style="background: #4B5563; padding: 20px; border-radius: 8px; color: white; font-weight: 600;">
+                    Storm: #4B5563
+                </div>
+                <div style="background: #60A5FA; padding: 20px; border-radius: 8px; color: white; font-weight: 600;">
+                    Rain Blue: #60A5FA
+                </div>
+                <div style="background: #FFD700; padding: 20px; border-radius: 8px; color: #202124; font-weight: 600;">
+                    Lightning: #FFD700
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
